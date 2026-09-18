@@ -1,25 +1,26 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { ArrowRight, ShoppingBag } from "lucide-react";
+import { useState } from "react";
 
-import heroHoodie from "@/assets/hero-hoodie.jpg";
+import nocturnalTee from "@/assets/nocturnal-tee.jpg";
 import vectorJacket from "@/assets/vector-jacket.jpg";
 import coreTee from "@/assets/core-tee.jpg";
 import summitBeanie from "@/assets/beanie.jpg";
 import carryPack from "@/assets/backpack.jpg";
+import { Button } from "@/components/ui/button";
 
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "VANTBLK — Engineered Black Merch" },
+      { title: "VANTBLK — Nocturnal Nights" },
       {
         name: "description",
-        content:
-          "Gear that moves with you. Engineered essentials in engineered black — cut for motion, built to outlast the season.",
+        content: "Nocturnal essentials in mineral-washed black. Limited heavyweight apparel by VANTBLK.",
       },
-      { property: "og:title", content: "VANTBLK — Engineered Black Merch" },
+      { property: "og:title", content: "VANTBLK — Nocturnal Nights" },
       {
         property: "og:description",
-        content:
-          "Gear that moves with you. Engineered essentials in engineered black — cut for motion, built to outlast the season.",
+        content: "Nocturnal essentials in mineral-washed black. Limited heavyweight apparel by VANTBLK.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
@@ -29,299 +30,167 @@ export const Route = createFileRoute("/")({
 });
 
 const products = [
-  {
-    name: "Vector Jacket",
-    tag: "New",
-    tagAccent: true,
-    desc: "Water-repellent shell",
-    price: "$164",
-    image: vectorJacket,
-    width: 1024,
-    height: 1024,
-  },
-  {
-    name: "Core Tee",
-    tag: "Best seller",
-    tagAccent: false,
-    desc: "Brushed recycled cotton",
-    price: "$48",
-    image: coreTee,
-    width: 1024,
-    height: 1024,
-  },
-  {
-    name: "Summit Beanie",
-    tag: "New",
-    tagAccent: true,
-    desc: "Ribbed merino blend",
-    price: "$36",
-    image: summitBeanie,
-    width: 1024,
-    height: 1024,
-  },
-  {
-    name: "Carry Pack 22L",
-    tag: "Low stock",
-    tagAccent: false,
-    desc: "Weatherproof 22L",
-    price: "$98",
-    image: carryPack,
-    width: 1024,
-    height: 1024,
-  },
+  { name: "Vector Jacket", note: "Weathered shell", price: "$164", image: vectorJacket },
+  { name: "Core Tee", note: "Mineral wash cotton", price: "$48", image: coreTee },
+  { name: "Summit Beanie", note: "Ribbed merino", price: "$36", image: summitBeanie },
+  { name: "Carry Pack 22L", note: "Waxed canvas", price: "$98", image: carryPack },
 ];
 
-const marqueeItems = [
-  "Free 48h shipping",
-  "Lifetime repairs",
-  "Recycled fabrics",
-  "Ships worldwide",
-  "Members early access",
-];
-
-const stats = [
-  { value: "100%", label: "Recycled materials", accent: "text-glow" },
-  { value: "Lifetime", label: "Free repairs", accent: "text-violet" },
-  { value: "48h", label: "Global delivery", accent: "" },
-  { value: "0", label: "Plastic packaging", accent: "" },
-];
+function Star({ className = "size-5" }: { className?: string }) {
+  return (
+    <svg className={className} viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+      <path d="M12 0 14.1 9.9 24 12l-9.9 2.1L12 24l-2.1-9.9L0 12l9.9-2.1L12 0Z" />
+    </svg>
+  );
+}
 
 function Index() {
+  const [selectedSize, setSelectedSize] = useState("M");
+  const [cartCount, setCartCount] = useState(0);
+
   return (
     <div className="relative min-h-screen overflow-hidden bg-ink font-body text-foreground">
-      {/* ambient diagonal glass + gradient light */}
-      <div className="pointer-events-none absolute inset-0 -z-10">
-        <div className="absolute inset-0 bg-ink" />
-        <div className="absolute -left-40 -top-40 size-[720px] rounded-full bg-violet/20 blur-[120px]" />
-        <div className="absolute -right-40 top-1/3 size-[640px] rounded-full bg-glow/15 blur-[120px]" />
-        <div className="absolute left-1/2 top-0 h-[120vh] w-[380px] animate-drift bg-gradient-to-b from-glow/10 via-violet/10 to-transparent" />
-        <div className="absolute -bottom-40 right-1/4 h-[120vh] w-[300px] animate-drift-slow bg-gradient-to-t from-violet/15 to-transparent" />
-      </div>
+      <div className="grain pointer-events-none fixed inset-0 z-50" />
 
-      {/* Nav */}
-      <header className="relative z-20 mx-auto max-w-7xl px-6 pt-6">
-        <nav className="flex items-center justify-between">
-          <div className="flex items-center gap-3">
-            <span className="grid size-9 place-items-center rounded-lg bg-foreground font-display text-lg font-bold text-ink">
-              V
-            </span>
-            <span className="font-display text-lg font-bold tracking-tight">VANTBLK</span>
+      <header className="relative z-20 border-b border-line">
+        <nav className="mx-auto flex h-20 max-w-7xl items-center justify-between px-5 md:px-8">
+          <a href="#top" className="font-display text-2xl font-semibold uppercase tracking-[0.2em]">
+            VANTBLK
+          </a>
+          <div className="hidden items-center gap-9 text-[11px] font-bold uppercase tracking-[0.18em] text-muted-foreground md:flex">
+            <a href="#collection" className="transition-colors hover:text-glow">Collection</a>
+            <a href="#manifesto" className="transition-colors hover:text-glow">Manifesto</a>
+            <a href="#archive" className="transition-colors hover:text-glow">Archive</a>
           </div>
-          <div className="hidden items-center gap-8 text-sm text-muted-foreground md:flex">
-            <a href="#drop" className="transition-colors hover:text-foreground">
-              New Drop
-            </a>
-            <a href="#products" className="transition-colors hover:text-foreground">
-              Apparel
-            </a>
-            <a href="#standard" className="transition-colors hover:text-foreground">
-              Accessories
-            </a>
-            <span className="text-foreground">Lookbook</span>
-          </div>
-          <div className="flex items-center gap-3">
-            <a
-              href="#products"
-              className="hidden items-center gap-2 rounded-full border border-line px-4 py-2 text-sm text-muted-foreground transition-colors hover:text-foreground sm:inline-flex"
-            >
-              <span className="size-1.5 rounded-full bg-glow" /> Cart (0)
-            </a>
-            <a
-              href="#products"
-              className="rounded-full bg-glow px-4 py-2 text-sm font-semibold text-ink transition-colors hover:bg-foreground"
-            >
-              Sign in
-            </a>
-          </div>
+          <a href="#collection" aria-label={`Shopping bag with ${cartCount} items`} className="flex items-center gap-2 text-xs uppercase tracking-[0.15em]">
+            <ShoppingBag className="size-4" /> <span>Bag ({cartCount})</span>
+          </a>
         </nav>
       </header>
 
-      {/* Hero */}
-      <section className="relative z-10 mx-auto max-w-7xl px-6 pb-10 pt-14">
-        <div className="grid items-center gap-8 lg:grid-cols-12">
-          <div className="lg:col-span-7">
-            <span className="inline-flex items-center gap-2 rounded-full border border-line bg-panel/60 px-3 py-1 text-xs uppercase tracking-[0.2em] text-glow">
-              <span className="size-1.5 animate-pulse rounded-full bg-glow" /> Drop 07 · Live now
-            </span>
-            <h1 className="mt-6 font-display text-5xl font-bold leading-[0.95] tracking-tight md:text-7xl">
-              Gear that
-              <br />
-              <span className="bg-gradient-to-r from-glow to-violet bg-clip-text text-transparent">
-                moves with you.
-              </span>
-            </h1>
-            <p className="mt-6 max-w-md text-lg text-muted-foreground">
-              Engineered essentials in engineered black. Cut for motion, built to outlast the
-              season, priced for the everyday.
-            </p>
-            <div className="mt-8 flex flex-wrap items-center gap-4">
-              <a
-                href="#products"
-                className="rounded-full bg-foreground px-7 py-3.5 font-semibold text-ink transition-colors hover:bg-glow"
-              >
-                Shop the drop
-              </a>
-              <a
-                href="#standard"
-                className="rounded-full border border-line px-7 py-3.5 font-semibold text-foreground transition-colors hover:border-glow"
-              >
-                Watch film
-              </a>
-            </div>
-            <div className="mt-10 flex gap-8 text-sm">
-              <div>
-                <div className="font-display text-2xl font-bold">12k+</div>
-                <div className="text-muted-foreground">members</div>
-              </div>
-              <div>
-                <div className="font-display text-2xl font-bold">38</div>
-                <div className="text-muted-foreground">styles</div>
-              </div>
-              <div>
-                <div className="font-display text-2xl font-bold">4.9</div>
-                <div className="text-muted-foreground">avg rating</div>
-              </div>
-            </div>
-          </div>
-
-          {/* Hero glass card */}
-          <div className="lg:col-span-5">
-            <div className="relative">
-              <div className="absolute -inset-3 rounded-3xl bg-gradient-to-br from-glow/30 to-violet/30 blur-2xl" />
-              <div className="glass-card relative p-3">
-                <img
-                  src={heroHoodie}
-                  alt="Aero Hoodie 07 — matte black technical hoodie"
-                  width={1024}
-                  height={1280}
-                  className="aspect-[4/5] w-full rounded-2xl object-cover"
-                />
-                <div className="flex items-center justify-between px-2 py-3">
-                  <div>
-                    <div className="font-display font-semibold">Aero Hoodie · 07</div>
-                    <div className="text-xs text-muted-foreground">Sizes S–XXL</div>
-                  </div>
-                  <div className="font-display text-lg font-bold">$128</div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Marquee band */}
-      <div className="marquee-band relative z-10 overflow-hidden py-4">
-        <div className="flex gap-12 whitespace-nowrap font-display text-sm uppercase tracking-[0.2em] text-muted-foreground">
-          {[0, 1].map((copy) => (
-            <div key={copy} className="flex gap-12" aria-hidden={copy === 1}>
-              {marqueeItems.map((item) => (
-                <span key={item} className="flex gap-12">
-                  <span>{item}</span>
-                  <span className="text-glow">/</span>
-                </span>
-              ))}
-            </div>
-          ))}
-        </div>
-      </div>
-
-      {/* Products */}
-      <section id="products" className="relative z-10 mx-auto max-w-7xl px-6 py-16">
-        <div className="mb-8 flex items-end justify-between">
-          <div>
-            <h2 className="font-display text-3xl font-bold tracking-tight md:text-4xl">
-              This week's drop
-            </h2>
-            <p className="mt-2 text-muted-foreground">Four pieces, cut tight to the season.</p>
-          </div>
-          <a href="#products" className="text-sm text-glow hover:underline">
-            View all →
-          </a>
-        </div>
-
-        <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
-          {products.map((product) => (
-            <a
-              key={product.name}
-              href="#products"
-              className="group rounded-2xl border border-line bg-panel/50 p-3 transition-colors hover:border-glow/40"
-            >
+      <main id="top">
+        <section className="relative mx-auto max-w-7xl px-5 py-10 md:px-8 md:py-16">
+          <div className="pointer-events-none absolute left-1/2 top-8 hidden h-[calc(100%-4rem)] w-[calc(100%-2rem)] -translate-x-1/2 border border-line/50 md:block" />
+          <div className="relative grid border border-line bg-panel md:grid-cols-2">
+            <div className="group relative min-h-[520px] overflow-hidden border-b border-line md:min-h-[720px] md:border-b-0 md:border-r">
               <img
-                src={product.image}
-                alt={product.name}
-                width={product.width}
-                height={product.height}
-                loading="lazy"
-                className="aspect-square w-full rounded-xl object-cover"
+                src={nocturnalTee}
+                alt="Nocturnal Nights acid-wash black graphic tee"
+                width={1024}
+                height={1280}
+                className="absolute inset-0 size-full object-cover transition-transform duration-[1800ms] group-hover:scale-[1.025]"
               />
-              <div className="px-1 pb-1 pt-3">
-                <div className="flex items-center justify-between">
-                  <span className="font-display font-semibold">{product.name}</span>
-                  <span className={product.tagAccent ? "text-xs text-glow" : "text-xs text-muted-foreground"}>
-                    {product.tag}
-                  </span>
-                </div>
-                <div className="mt-0.5 text-xs text-muted-foreground">{product.desc}</div>
-                <div className="mt-2 font-display font-bold">{product.price}</div>
+              <div className="absolute inset-0 bg-gradient-to-t from-ink/70 via-transparent to-ink/20" />
+              <div className="absolute left-6 top-6 flex items-center gap-3 text-[10px] font-bold uppercase tracking-[0.3em] text-muted-foreground md:left-8 md:top-8">
+                Series 001 <span className="h-px w-12 bg-muted-foreground/50" />
               </div>
-            </a>
-          ))}
-        </div>
-      </section>
+              <div className="absolute bottom-6 left-6 text-[10px] uppercase tracking-[0.25em] text-muted-foreground md:bottom-8 md:left-8">
+                Back artwork / Mineral black
+              </div>
+            </div>
 
-      {/* Feature band */}
-      <section id="standard" className="relative z-10 mx-auto max-w-7xl px-6 pb-16">
-        <div className="glass-card relative overflow-hidden">
-          <div className="absolute -right-20 -top-20 size-80 rounded-full bg-glow/20 blur-[100px]" />
-          <div className="relative grid items-center gap-8 p-8 md:grid-cols-2 md:p-12">
-            <div>
-              <span className="text-xs uppercase tracking-[0.2em] text-glow">
-                The VANTBLK standard
-              </span>
-              <h3 className="mt-3 font-display text-3xl font-bold tracking-tight md:text-4xl">
-                Built once. Worn for years.
-              </h3>
-              <p className="mt-4 max-w-sm text-muted-foreground">
-                Every piece is stress-tested, made from recycled technical fabrics, and backed by a
-                lifetime repair promise. No seasons, no waste.
+            <div className="relative flex min-h-[620px] flex-col justify-center overflow-hidden p-7 md:min-h-[720px] md:p-14 lg:p-16">
+              <Star className="mb-10 size-10 text-foreground" />
+              <p className="mb-5 text-[10px] font-bold uppercase tracking-[0.35em] text-glow">VANTBLK / Drop 08</p>
+              <h1 className="max-w-lg font-display text-6xl font-medium leading-[0.82] md:text-7xl lg:text-8xl">
+                Nocturnal<br /><span className="italic text-glow">Nights</span>
+              </h1>
+              <p className="mt-7 max-w-sm font-display text-xl italic leading-relaxed text-muted-foreground">
+                When the city sleeps, we come alive. A heavyweight silhouette made for the hours after midnight.
+              </p>
+
+              <div className="mt-10 border-y border-line py-6">
+                <div className="flex flex-wrap items-center justify-between gap-5">
+                  <span className="font-display text-2xl">$65.00</span>
+                  <div className="flex gap-2" aria-label="Select a size">
+                    {["S", "M", "L", "XL"].map((size) => (
+                      <Button
+                        key={size}
+                        size="icon"
+                        variant={selectedSize === size ? "primary" : "outline"}
+                        onClick={() => setSelectedSize(size)}
+                        aria-pressed={selectedSize === size}
+                      >
+                        {size}
+                      </Button>
+                    ))}
+                  </div>
+                </div>
+              </div>
+
+              <Button className="mt-7 w-full" onClick={() => setCartCount((count) => count + 1)}>
+                Add size {selectedSize} to bag <ArrowRight className="ml-3 size-4" />
+              </Button>
+              <div className="mt-6 flex flex-wrap gap-x-8 gap-y-2 text-[9px] font-bold uppercase tracking-[0.18em] text-muted-foreground">
+                <span className="flex items-center gap-2"><Star className="size-2 text-glow" /> 420gsm cotton</span>
+                <span className="flex items-center gap-2"><Star className="size-2 text-glow" /> Distressed finish</span>
+              </div>
+              <Star className="pointer-events-none absolute -bottom-10 -right-10 size-36 text-foreground/5" />
+            </div>
+          </div>
+          <div className="pointer-events-none overflow-hidden whitespace-nowrap pt-8 font-display text-6xl uppercase text-foreground/5 md:text-9xl">
+            Nocturnal / Nocturnal / Nocturnal
+          </div>
+        </section>
+
+        <section id="collection" className="border-y border-line bg-background py-20">
+          <div className="mx-auto max-w-7xl px-5 md:px-8">
+            <div className="mb-10 grid items-end gap-6 md:grid-cols-2">
+              <div>
+                <p className="text-[10px] font-bold uppercase tracking-[0.3em] text-glow">The midnight edit</p>
+                <h2 className="mt-3 font-display text-5xl leading-none md:text-6xl">After-dark uniforms.</h2>
+              </div>
+              <p className="max-w-sm text-sm leading-relaxed text-muted-foreground md:justify-self-end">
+                Built in small runs. Washed, worn, and finished by hand so no two pieces settle exactly the same.
               </p>
             </div>
-            <div className="grid grid-cols-2 gap-4">
-              {stats.map((stat) => (
-                <div key={stat.label} className="rounded-2xl border border-line bg-ink/40 p-5">
-                  <div
-                    className={`font-display text-3xl font-bold ${stat.accent || "text-foreground"}`}
-                  >
-                    {stat.value}
+
+            <div className="grid border-l border-t border-line sm:grid-cols-2 lg:grid-cols-4">
+              {products.map((product, index) => (
+                <a key={product.name} href="#top" className="group border-b border-r border-line bg-panel/40 p-3">
+                  <div className="relative aspect-[4/5] overflow-hidden bg-ink">
+                    <img src={product.image} alt={product.name} width={1024} height={1024} loading="lazy" className="size-full object-cover grayscale transition duration-700 group-hover:scale-[1.03] group-hover:grayscale-0" />
+                    <span className="absolute left-4 top-4 text-[9px] uppercase tracking-[0.2em] text-foreground/70">0{index + 2}</span>
                   </div>
-                  <div className="mt-1 text-sm text-muted-foreground">{stat.label}</div>
-                </div>
+                  <div className="flex items-start justify-between gap-4 px-1 py-5">
+                    <div>
+                      <h3 className="font-display text-xl">{product.name}</h3>
+                      <p className="mt-1 text-[10px] uppercase tracking-[0.12em] text-muted-foreground">{product.note}</p>
+                    </div>
+                    <span className="font-display text-lg text-glow">{product.price}</span>
+                  </div>
+                </a>
               ))}
             </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* Footer */}
-      <footer className="relative z-10 border-t border-line">
-        <div className="mx-auto flex max-w-7xl flex-col items-start justify-between gap-6 px-6 py-10 md:flex-row md:items-center">
-          <div className="flex items-center gap-3">
-            <span className="grid size-8 place-items-center rounded-lg bg-foreground font-display font-bold text-ink">
-              V
-            </span>
-            <span className="font-display font-bold">VANTBLK</span>
-            <span className="text-sm text-muted-foreground">© 2026 · Gear for the everyday</span>
+        <section id="manifesto" className="relative border-b border-line py-24">
+          <div className="mx-auto grid max-w-7xl gap-12 px-5 md:grid-cols-12 md:px-8">
+            <div className="md:col-span-3"><Star className="size-12 text-glow" /></div>
+            <div className="md:col-span-7">
+              <p className="text-[10px] font-bold uppercase tracking-[0.3em] text-muted-foreground">Our manifesto</p>
+              <h2 className="mt-5 font-display text-4xl leading-tight md:text-6xl">
+                Made for those who find clarity <span className="italic text-glow">after dark.</span>
+              </h2>
+              <p className="mt-8 max-w-xl text-sm leading-7 text-muted-foreground">
+                Heavy fabrics, lived-in finishes, and artwork that feels pulled from a forgotten night poster. Every piece is designed to age into your own archive.
+              </p>
+            </div>
           </div>
-          <div className="flex gap-6 text-sm text-muted-foreground">
-            <a href="#products" className="transition-colors hover:text-foreground">
-              Instagram
-            </a>
-            <a href="#standard" className="transition-colors hover:text-foreground">
-              Support
-            </a>
-            <a href="#drop" className="transition-colors hover:text-foreground">
-              Careers
-            </a>
+        </section>
+      </main>
+
+      <footer id="archive" className="bg-background">
+        <div className="mx-auto flex max-w-7xl flex-col gap-8 px-5 py-12 md:flex-row md:items-end md:justify-between md:px-8">
+          <div>
+            <div className="font-display text-4xl uppercase tracking-[0.12em]">VANTBLK</div>
+            <p className="mt-2 text-xs uppercase tracking-[0.16em] text-muted-foreground">When the city sleeps.</p>
+          </div>
+          <div className="flex gap-7 text-[10px] uppercase tracking-[0.18em] text-muted-foreground">
+            <a href="#collection" className="hover:text-glow">Instagram</a>
+            <a href="#manifesto" className="hover:text-glow">Support</a>
+            <span>© 2026</span>
           </div>
         </div>
       </footer>
