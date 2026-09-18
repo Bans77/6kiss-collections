@@ -12,15 +12,15 @@ import { Button } from "@/components/ui/button";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "VANTBLK — Nocturnal Nights" },
+      { title: "NOCTURNAL — Nocturnal Nights" },
       {
         name: "description",
-        content: "Nocturnal essentials in mineral-washed black. Limited heavyweight apparel by VANTBLK.",
+        content: "Nocturnal essentials in mineral-washed black. Limited heavyweight apparel by NOCTURNAL.",
       },
-      { property: "og:title", content: "VANTBLK — Nocturnal Nights" },
+      { property: "og:title", content: "NOCTURNAL — Nocturnal Nights" },
       {
         property: "og:description",
-        content: "Nocturnal essentials in mineral-washed black. Limited heavyweight apparel by VANTBLK.",
+        content: "Nocturnal essentials in mineral-washed black. Limited heavyweight apparel by NOCTURNAL.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
@@ -55,7 +55,7 @@ function Index() {
       <header className="relative z-20 border-b border-line">
         <nav className="mx-auto flex h-20 max-w-7xl items-center justify-between px-5 md:px-8">
           <a href="#top" className="font-display text-2xl font-semibold uppercase tracking-[0.2em]">
-            VANTBLK
+            NOCTURNAL
           </a>
           <div className="hidden items-center gap-9 text-[11px] font-bold uppercase tracking-[0.18em] text-muted-foreground md:flex">
             <a href="#collection" className="transition-colors hover:text-glow">Collection</a>
@@ -91,7 +91,7 @@ function Index() {
 
             <div className="relative flex min-h-[620px] flex-col justify-center overflow-hidden p-7 md:min-h-[720px] md:p-14 lg:p-16">
               <Star className="mb-10 size-10 text-foreground" />
-              <p className="mb-5 text-[10px] font-bold uppercase tracking-[0.35em] text-glow">VANTBLK / Drop 08</p>
+              <p className="mb-5 text-[10px] font-bold uppercase tracking-[0.35em] text-glow">NOCTURNAL / Drop 08</p>
               <h1 className="max-w-lg font-display text-6xl font-medium leading-[0.82] md:text-7xl lg:text-8xl">
                 Nocturnal<br /><span className="italic text-glow">Nights</span>
               </h1>
@@ -184,7 +184,7 @@ function Index() {
       <footer id="archive" className="bg-background">
         <div className="mx-auto flex max-w-7xl flex-col gap-8 px-5 py-12 md:flex-row md:items-end md:justify-between md:px-8">
           <div>
-            <div className="font-display text-4xl uppercase tracking-[0.12em]">VANTBLK</div>
+            <div className="font-display text-4xl uppercase tracking-[0.12em]">NOCTURNAL</div>
             <p className="mt-2 text-xs uppercase tracking-[0.16em] text-muted-foreground">When the city sleeps.</p>
           </div>
           <div className="flex gap-7 text-[10px] uppercase tracking-[0.18em] text-muted-foreground">
