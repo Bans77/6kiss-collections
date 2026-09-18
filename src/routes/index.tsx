@@ -174,7 +174,7 @@ function Index() {
                 Made for those who find clarity <span className="italic text-glow">after dark.</span>
               </h2>
               <p className="mt-8 max-w-xl text-sm leading-7 text-muted-foreground">
-                Heavy fabrics, lived-in finishes, and artwork that feels pulled from a forgotten night poster. Every piece is designed to age into your own archive.
+                Heavy fabrics, lived-in finishes, every piece is designed to age into your own archive.
               </p>
             </div>
           </div>
