@@ -91,12 +91,12 @@ function Index() {
 
             <div className="relative flex min-h-[620px] flex-col justify-center overflow-hidden p-7 md:min-h-[720px] md:p-14 lg:p-16">
               <Star className="mb-10 size-10 text-foreground" />
-              <p className="mb-5 text-[10px] font-bold uppercase tracking-[0.35em] text-glow">NOCTURNAL / Drop 08</p>
+              <p className="mb-5 text-[10px] font-bold uppercase tracking-[0.35em] text-glow">NOCTURNAL / DROP</p>
               <h1 className="max-w-lg font-display text-6xl font-medium leading-[0.82] md:text-7xl lg:text-8xl">
                 Nocturnal<br /><span className="italic text-glow">Nights</span>
               </h1>
               <p className="mt-7 max-w-sm font-display text-xl italic leading-relaxed text-muted-foreground">
-                When the city sleeps, we come alive. A heavyweight silhouette made for the hours after midnight.
+                When the city sleeps, we come alive. A heavyweight silhouette made for the ones who know.
               </p>
 
               <div className="mt-10 border-y border-line py-6">
@@ -137,8 +137,8 @@ function Index() {
           <div className="mx-auto max-w-7xl px-5 md:px-8">
             <div className="mb-10 grid items-end gap-6 md:grid-cols-2">
               <div>
-                <p className="text-[10px] font-bold uppercase tracking-[0.3em] text-glow">The midnight edit</p>
-                <h2 className="mt-3 font-display text-5xl leading-none md:text-6xl">After-dark uniforms.</h2>
+                <p className="text-[10px] font-bold uppercase tracking-[0.3em] text-glow">AFTER DARK</p>
+                <h2 className="mt-3 font-display text-5xl leading-none md:text-6xl">6Kiss</h2>
               </div>
               <p className="max-w-sm text-sm leading-relaxed text-muted-foreground md:justify-self-end">
                 Built in small runs. Washed, worn, and finished by hand so no two pieces settle exactly the same.
