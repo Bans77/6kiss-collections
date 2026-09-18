@@ -93,7 +93,7 @@ function Index() {
               <Star className="mb-10 size-10 text-foreground" />
               <p className="mb-5 text-[10px] font-bold uppercase tracking-[0.35em] text-glow">NOCTURNAL / DROP</p>
               <h1 className="max-w-lg font-display text-6xl font-medium leading-[0.82] md:text-7xl lg:text-8xl">
-                Nocturnal<br /> <span className="text-accent">Collection</span>
+                Nocturnal<br /> <span className="text-primary">Collection</span>
               </h1>
               <p className="mt-7 max-w-sm font-display text-xl italic leading-relaxed text-muted-foreground">
                 When the city sleeps, we come alive. A heavyweight silhouette made for the ones who know.
