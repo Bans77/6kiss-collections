@@ -77,10 +77,10 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "VANTBLK" },
+      { title: "NOCTURNAL" },
       { name: "description", content: "Nocturnal essentials in mineral-washed black." },
-      { name: "author", content: "VANTBLK" },
-      { property: "og:title", content: "VANTBLK" },
+      { name: "author", content: "NOCTURNAL" },
+      { property: "og:title", content: "NOCTURNAL" },
       { property: "og:description", content: "Nocturnal essentials in mineral-washed black." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
