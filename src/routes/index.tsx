@@ -93,7 +93,7 @@ function Index() {
               <Star className="mb-10 size-10 text-foreground" />
               <p className="mb-5 text-[10px] font-bold uppercase tracking-[0.35em] text-glow">NOCTURNAL / DROP</p>
               <h1 className="max-w-lg font-display text-6xl font-medium leading-[0.82] md:text-7xl lg:text-8xl">
-                Nocturnal<br /><span className="italic text-glow">Nights</span>
+                Nocturnal<br /><span className="italic text-glow">- 6 kiss Collection</span>
               </h1>
               <p className="mt-7 max-w-sm font-display text-xl italic leading-relaxed text-muted-foreground">
                 When the city sleeps, we come alive. A heavyweight silhouette made for the ones who know.
@@ -141,7 +141,7 @@ function Index() {
                 <h2 className="mt-3 font-display text-5xl leading-none md:text-6xl">6Kiss</h2>
               </div>
               <p className="max-w-sm text-sm leading-relaxed text-muted-foreground md:justify-self-end">
-                Built in small runs. Washed, worn, and finished by hand so no two pieces settle exactly the same.
+                Built in small runs. Stone Washed, worn, and finished by hand so no two pieces settle exactly the same.
               </p>
             </div>
 
