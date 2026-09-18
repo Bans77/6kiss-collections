@@ -55,7 +55,7 @@ function Index() {
       <header className="relative z-20 border-b border-line">
         <nav className="mx-auto flex h-20 max-w-7xl items-center justify-between px-5 md:px-8">
           <a href="#top" className="font-display text-2xl font-semibold uppercase tracking-[0.2em]">
-            NOCTURNAL
+            6KISS
           </a>
           <div className="hidden items-center gap-9 text-[11px] font-bold uppercase tracking-[0.18em] text-muted-foreground md:flex">
             <a href="#collection" className="transition-colors hover:text-glow">Collection</a>
@@ -93,7 +93,7 @@ function Index() {
               <Star className="mb-10 size-10 text-foreground" />
               <p className="mb-5 text-[10px] font-bold uppercase tracking-[0.35em] text-glow">NOCTURNAL / DROP</p>
               <h1 className="max-w-lg font-display text-6xl font-medium leading-[0.82] md:text-7xl lg:text-8xl">
-                Nocturnal<br /><span className="italic text-glow">- 6 kiss Collection</span>
+                Nocturnal<br /> Collection
               </h1>
               <p className="mt-7 max-w-sm font-display text-xl italic leading-relaxed text-muted-foreground">
                 When the city sleeps, we come alive. A heavyweight silhouette made for the ones who know.
