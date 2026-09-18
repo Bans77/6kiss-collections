@@ -2,7 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { ArrowRight, ShoppingBag } from "lucide-react";
 import { useState } from "react";
 
-import nocturnalTee from "@/assets/nocturnal-tee.jpg";
+import nocturnalTee from "@/assets/nocturnal-tee-cutout.png";
 import vectorJacket from "@/assets/vector-jacket.jpg";
 import coreTee from "@/assets/core-tee.jpg";
 import summitBeanie from "@/assets/beanie.jpg";
@@ -77,8 +77,8 @@ function Index() {
                 src={nocturnalTee}
                 alt="Nocturnal Nights acid-wash black graphic tee"
                 width={1024}
-                height={1280}
-                className="absolute inset-0 size-full object-cover transition-transform duration-[1800ms] group-hover:scale-[1.025]"
+                height={1024}
+                className="absolute inset-0 size-full object-contain p-6 drop-shadow-[0_24px_60px_oklch(0.7_0.075_10/0.12)] transition-transform duration-[1800ms] group-hover:scale-[1.025] md:p-10"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-ink/70 via-transparent to-ink/20" />
               <div className="absolute left-6 top-6 flex items-center gap-3 text-[10px] font-bold uppercase tracking-[0.3em] text-muted-foreground md:left-8 md:top-8">
