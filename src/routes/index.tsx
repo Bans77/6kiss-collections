@@ -2,7 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { ArrowRight, ShoppingBag } from "lucide-react";
 import { useState } from "react";
 
-import nocturnalTee from "@/assets/nocturnal-tee.jpg";
+import nocturnalTee from "@/assets/nocturnal-tee-cutout.png";
 import vectorJacket from "@/assets/vector-jacket.jpg";
 import coreTee from "@/assets/core-tee.jpg";
 import summitBeanie from "@/assets/beanie.jpg";
