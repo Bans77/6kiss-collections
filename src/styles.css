@@ -39,14 +39,14 @@
   --color-input: var(--input);
   --color-ring: var(--ring);
 
-  /* Kinetic Dark Glass tokens */
+  /* Nocturnal Acid editorial tokens */
   --color-ink: var(--ink);
   --color-panel: var(--panel);
   --color-line: var(--line);
   --color-glow: var(--glow);
   --color-violet: var(--violet);
-  --font-display: "Space Grotesk", sans-serif;
-  --font-body: "Inter", sans-serif;
+  --font-display: "Cormorant Garamond", serif;
+  --font-body: "Karla", sans-serif;
 
   --animate-drift: drift 18s ease-in-out infinite alternate;
   --animate-drift-slow: drift-slow 22s ease-in-out infinite alternate;
@@ -72,34 +72,34 @@
 :root {
   --radius: 0.625rem;
 
-  /* Core surfaces — acid-washed black, faintly warm charcoal */
+  /* Locked palette: #111010 / #242020 / #c18f98 / #d8d4d0 */
   --background: oklch(0.14 0.004 20);
-  --ink: oklch(0.125 0.004 20);
-  --panel: oklch(0.2 0.006 22);
-  --foreground: oklch(0.93 0.004 40);
-  --card: oklch(0.2 0.006 22);
-  --card-foreground: oklch(0.93 0.004 40);
-  --popover: oklch(0.2 0.006 22);
-  --popover-foreground: oklch(0.93 0.004 40);
+  --ink: oklch(0.12 0.004 20);
+  --panel: oklch(0.19 0.009 18);
+  --foreground: oklch(0.86 0.006 45);
+  --card: oklch(0.19 0.009 18);
+  --card-foreground: oklch(0.86 0.006 45);
+  --popover: oklch(0.19 0.009 18);
+  --popover-foreground: oklch(0.86 0.006 45);
 
   /* Accents — dusty rose script + deep mauve haze */
-  --primary: oklch(0.72 0.075 15);
+  --primary: oklch(0.7 0.075 10);
   --primary-foreground: oklch(0.125 0.004 20);
-  --glow: oklch(0.72 0.075 15);
-  --violet: oklch(0.45 0.06 355);
+  --glow: oklch(0.7 0.075 10);
+  --violet: oklch(0.45 0.055 355);
   --accent: oklch(0.26 0.008 22);
   --accent-foreground: oklch(0.93 0.004 40);
 
   --secondary: oklch(0.26 0.008 22);
   --secondary-foreground: oklch(0.93 0.004 40);
   --muted: oklch(0.26 0.008 22);
-  --muted-foreground: oklch(0.66 0.008 30);
+  --muted-foreground: oklch(0.62 0.012 25);
 
   --destructive: oklch(0.6 0.2 25);
   --destructive-foreground: oklch(0.98 0 0);
 
-  --border: oklch(0.29 0.008 24);
-  --input: oklch(0.29 0.008 24);
+  --border: oklch(0.31 0.012 20);
+  --input: oklch(0.31 0.012 20);
   --ring: oklch(0.68 0.06 15);
 }
 
@@ -115,9 +115,28 @@
     -webkit-font-smoothing: antialiased;
   }
 
+  html {
+    scroll-behavior: smooth;
+  }
+
   ::selection {
     background: var(--color-glow);
     color: var(--color-ink);
+  }
+}
+
+@utility grain {
+  opacity: 0.07;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.7'/%3E%3C/svg%3E");
+  mix-blend-mode: soft-light;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
   }
 }
 
