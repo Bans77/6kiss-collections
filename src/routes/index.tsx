@@ -5,8 +5,6 @@ import { useState } from "react";
 import nocturnalTee from "@/assets/nocturnal-tee-cutout.png";
 import longsleeve from "@/assets/nocturnal-longsleeve-cutout.png";
 import coreTee from "@/assets/core-tee.jpg";
-import summitBeanie from "@/assets/beanie.jpg";
-import carryPack from "@/assets/backpack.jpg";
 import { Button } from "@/components/ui/button";
 
 export const Route = createFileRoute("/")({
