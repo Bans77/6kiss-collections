@@ -82,7 +82,7 @@ function Index() {
               />
               <div className="absolute inset-0 bg-gradient-to-t from-ink/70 via-transparent to-ink/20" />
               <div className="absolute left-6 top-6 flex items-center gap-3 text-[10px] font-bold uppercase tracking-[0.3em] text-muted-foreground md:left-8 md:top-8">
-                Series 001 <span className="h-px w-12 bg-muted-foreground/50" />
+                SERIES 01<span className="h-px w-12 bg-muted-foreground/50" />
               </div>
               <div className="absolute bottom-6 left-6 text-[10px] uppercase tracking-[0.25em] text-muted-foreground md:bottom-8 md:left-8">
                 STONE WASH
