@@ -4,7 +4,7 @@ import { useState } from "react";
 
 import nocturnalTee from "@/assets/nocturnal-tee-cutout.png";
 import longsleeve from "@/assets/nocturnal-longsleeve-cutout.png";
-import coreTee from "@/assets/core-tee.jpg";
+import coreTee from "@/assets/nocturnal-hoodie-cutout.png";
 import { Button } from "@/components/ui/button";
 
 export const Route = createFileRoute("/")({
@@ -29,7 +29,7 @@ export const Route = createFileRoute("/")({
 
 const products: { name: string; note: string; price: string; image: string; fit?: "contain" }[] = [
   { name: "6Kiss Long Sleeve Tee", note: "STONE WASH", price: "$39.99", image: longsleeve, fit: "contain" },
-  { name: "Core Tee", note: "Mineral wash cotton", price: "$48", image: coreTee },
+  { name: "Core Tee", note: "Mineral wash cotton", price: "$48", image: coreTee, fit: "contain" },
 ];
 
 function Star({ className = "size-5" }: { className?: string }) {
