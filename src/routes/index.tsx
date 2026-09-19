@@ -118,7 +118,7 @@ function Index() {
                 Add size {selectedSize} to bag <ArrowRight className="ml-3 size-4" />
               </Button>
               <div className="mt-6 flex flex-wrap gap-x-8 gap-y-2 text-[9px] font-bold uppercase tracking-[0.18em] text-muted-foreground">
-                <span className="flex items-center gap-2"><Star className="size-2 text-glow" /> 250GSM COTTON</span>
+                <span className="flex items-center gap-2"><Star className="size-2 text-primary" /> 250GSM COTTON</span>
                 <span className="flex items-center gap-2"><Star className="size-2 text-glow" /> Distressed finish</span>
               </div>
               <Star className="pointer-events-none absolute -bottom-10 -right-10 size-36 text-foreground/5" />
