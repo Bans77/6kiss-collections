@@ -3,7 +3,7 @@ import { ArrowRight, ShoppingBag } from "lucide-react";
 import { useState } from "react";
 
 import nocturnalTee from "@/assets/nocturnal-tee-cutout.png";
-import vectorJacket from "@/assets/vector-jacket.jpg";
+import longsleeve from "@/assets/nocturnal-longsleeve-cutout.png";
 import coreTee from "@/assets/core-tee.jpg";
 import summitBeanie from "@/assets/beanie.jpg";
 import carryPack from "@/assets/backpack.jpg";
@@ -30,7 +30,7 @@ export const Route = createFileRoute("/")({
 });
 
 const products = [
-  { name: "Vector Jacket", note: "Weathered shell", price: "$164", image: vectorJacket },
+  { name: "Vector Jacket", note: "Weathered shell", price: "$164", image: longsleeve, fit: "contain" },
   { name: "Core Tee", note: "Mineral wash cotton", price: "$48", image: coreTee },
   { name: "Summit Beanie", note: "Ribbed merino", price: "$36", image: summitBeanie },
   { name: "Carry Pack 22L", note: "Waxed canvas", price: "$98", image: carryPack },
@@ -149,7 +149,7 @@ function Index() {
               {products.map((product, index) => (
                 <a key={product.name} href="#top" className="group border-b border-r border-line bg-panel/40 p-3">
                   <div className="relative aspect-[4/5] overflow-hidden bg-ink">
-                    <img src={product.image} alt={product.name} width={1024} height={1024} loading="lazy" className="size-full object-cover grayscale transition duration-700 group-hover:scale-[1.03] group-hover:grayscale-0" />
+                    <img src={product.image} alt={product.name} width={1024} height={1024} loading="lazy" className={"size-full " + (product.fit === "contain" ? "scale-[1.02] object-contain p-4 grayscale transition duration-700 group-hover:scale-[1.05] group-hover:grayscale-0" : "object-cover grayscale transition duration-700 group-hover:scale-[1.03] group-hover:grayscale-0")} />
                     <span className="absolute left-4 top-4 text-[9px] uppercase tracking-[0.2em] text-foreground/70">0{index + 2}</span>
                   </div>
                   <div className="flex items-start justify-between gap-4 px-1 py-5">
