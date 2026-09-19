@@ -30,8 +30,6 @@ export const Route = createFileRoute("/")({
 const products: { name: string; note: string; price: string; image: string; fit?: "contain" }[] = [
   { name: "6Kiss Long Sleeve Tee", note: "STONE WASH", price: "$39.99", image: longsleeve, fit: "contain" },
   { name: "Core Tee", note: "Mineral wash cotton", price: "$48", image: coreTee },
-  { name: "Summit Beanie", note: "Ribbed merino", price: "$36", image: summitBeanie },
-  { name: "Carry Pack 22L", note: "Waxed canvas", price: "$98", image: carryPack },
 ];
 
 function Star({ className = "size-5" }: { className?: string }) {
