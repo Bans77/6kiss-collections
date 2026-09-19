@@ -30,7 +30,7 @@ export const Route = createFileRoute("/")({
 });
 
 const products: { name: string; note: string; price: string; image: string; fit?: "contain" }[] = [
-  { name: "Vector Jacket", note: "Weathered shell", price: "$164", image: longsleeve, fit: "contain" },
+  { name: "6Kiss Long Sleeve Tee", note: "STONE WASH", price: "$39.99", image: longsleeve, fit: "contain" },
   { name: "Core Tee", note: "Mineral wash cotton", price: "$48", image: coreTee },
   { name: "Summit Beanie", note: "Ribbed merino", price: "$36", image: summitBeanie },
   { name: "Carry Pack 22L", note: "Waxed canvas", price: "$98", image: carryPack },
@@ -101,7 +101,7 @@ function Index() {
 
               <div className="mt-10 border-y border-line py-6">
                 <div className="flex flex-wrap items-center justify-between gap-5">
-                  <span className="font-display text-2xl">$35.00</span>
+                  <span className="font-display text-2xl">$34.99</span>
                   <div className="flex gap-2" aria-label="Select a size">
                     {["S", "M", "L", "XL", "2XL", "3XL"].map((size) => (
                       <Button
