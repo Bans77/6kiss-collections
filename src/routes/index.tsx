@@ -59,7 +59,7 @@ function Index() {
           </a>
           <div className="hidden items-center gap-9 text-[11px] font-bold uppercase tracking-[0.18em] text-muted-foreground md:flex">
             <a href="#collection" className="transition-colors hover:text-glow">Collection</a>
-            <a href="#manifesto" className="transition-colors hover:text-glow">Manifesto</a>
+            <a href="#archive" className="transition-colors hover:text-glow">Archive</a>
             <a href="#archive" className="transition-colors hover:text-glow">Archive</a>
           </div>
           <a href="#collection" aria-label={`Shopping bag with ${cartCount} items`} className="flex items-center gap-2 text-xs uppercase tracking-[0.15em]">
@@ -165,20 +165,6 @@ function Index() {
           </div>
         </section>
 
-        <section id="manifesto" className="relative border-b border-line py-24">
-          <div className="mx-auto grid max-w-7xl gap-12 px-5 md:grid-cols-12 md:px-8">
-            <div className="md:col-span-3"><Star className="size-12 text-glow" /></div>
-            <div className="md:col-span-7">
-              <p className="text-[10px] font-bold uppercase tracking-[0.3em] text-muted-foreground">Our manifesto</p>
-              <h2 className="mt-5 font-display text-4xl leading-tight md:text-6xl">
-                Made for those who find clarity <span className="italic text-glow">after dark.</span>
-              </h2>
-              <p className="mt-8 max-w-xl text-sm leading-7 text-muted-foreground">
-                Heavy fabrics, lived-in finishes, every piece is designed to age into your own archive.
-              </p>
-            </div>
-          </div>
-        </section>
       </main>
 
       <footer id="archive" className="bg-background">
@@ -188,8 +174,9 @@ function Index() {
             <p className="mt-2 text-xs uppercase tracking-[0.16em] text-muted-foreground">When the city sleeps.</p>
           </div>
           <div className="flex gap-7 text-[10px] uppercase tracking-[0.18em] text-muted-foreground">
-            <a href="#collection" className="hover:text-glow">Instagram</a>
-            <a href="#manifesto" className="hover:text-glow">Support</a>
+            <a href="#top" className="hover:text-glow">Instagram</a>
+            <a href="#archive" className="hover:text-glow">Support</a>
+
             <span>© 2026</span>
           </div>
         </div>
