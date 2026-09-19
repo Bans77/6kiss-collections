@@ -85,7 +85,7 @@ function Index() {
                 SERIES 01<span className="h-px w-12 bg-muted-foreground/50" />
               </div>
               <div className="absolute bottom-6 left-6 text-[10px] uppercase tracking-[0.25em] text-muted-foreground md:bottom-8 md:left-8">
-                STONE WASH
+                6KISS SHORT SLEEVE TEE
               </div>
             </div>
 
