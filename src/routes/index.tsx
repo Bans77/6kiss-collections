@@ -134,7 +134,7 @@ function Index() {
             <div className="mb-10 grid items-end gap-6 md:grid-cols-2">
               <div>
                 <p className="text-[10px] font-bold uppercase tracking-[0.3em] text-glow">AFTER DARK</p>
-                <h2 className="mt-3 font-display text-5xl leading-none md:text-6xl">6Kiss</h2>
+                <h2 className="mt-3 font-display text-5xl leading-none md:text-6xl">6Kiss - Nocturnal Collection</h2>
               </div>
               <p className="max-w-sm text-sm leading-relaxed text-muted-foreground md:justify-self-end">
                 Built in small runs. Stone Washed, worn, and finished by hand so no two pieces settle exactly the same.
