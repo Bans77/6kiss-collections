@@ -5,8 +5,6 @@ import { useState } from "react";
 import nocturnalTee from "@/assets/nocturnal-tee-cutout.png";
 import longsleeve from "@/assets/nocturnal-longsleeve-cutout.png";
 import coreTee from "@/assets/core-tee.jpg";
-import summitBeanie from "@/assets/beanie.jpg";
-import carryPack from "@/assets/backpack.jpg";
 import { Button } from "@/components/ui/button";
 
 export const Route = createFileRoute("/")({
@@ -32,8 +30,6 @@ export const Route = createFileRoute("/")({
 const products: { name: string; note: string; price: string; image: string; fit?: "contain" }[] = [
   { name: "6Kiss Long Sleeve Tee", note: "STONE WASH", price: "$39.99", image: longsleeve, fit: "contain" },
   { name: "Core Tee", note: "Mineral wash cotton", price: "$48", image: coreTee },
-  { name: "Summit Beanie", note: "Ribbed merino", price: "$36", image: summitBeanie },
-  { name: "Carry Pack 22L", note: "Waxed canvas", price: "$98", image: carryPack },
 ];
 
 function Star({ className = "size-5" }: { className?: string }) {
@@ -145,7 +141,7 @@ function Index() {
               </p>
             </div>
 
-            <div className="grid border-l border-t border-line sm:grid-cols-2 lg:grid-cols-4">
+            <div className="grid border-l border-t border-line sm:grid-cols-2">
               {products.map((product, index) => (
                 <a key={product.name} href="#top" className="group border-b border-r border-line bg-panel/40 p-3">
                   <div className="relative aspect-[4/5] overflow-hidden bg-ink">
