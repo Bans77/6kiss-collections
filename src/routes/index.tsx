@@ -174,8 +174,9 @@ function Index() {
             <p className="mt-2 text-xs uppercase tracking-[0.16em] text-muted-foreground">When the city sleeps.</p>
           </div>
           <div className="flex gap-7 text-[10px] uppercase tracking-[0.18em] text-muted-foreground">
-            <a href="#collection" className="hover:text-glow">Instagram</a>
-            <a href="#manifesto" className="hover:text-glow">Support</a>
+            <a href="#top" className="hover:text-glow">Instagram</a>
+            <a href="#archive" className="hover:text-glow">Support</a>
+
             <span>© 2026</span>
           </div>
         </div>
