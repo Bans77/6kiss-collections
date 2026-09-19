@@ -29,7 +29,7 @@ export const Route = createFileRoute("/")({
   component: Index,
 });
 
-const products = [
+const products: { name: string; note: string; price: string; image: string; fit?: "contain" }[] = [
   { name: "Vector Jacket", note: "Weathered shell", price: "$164", image: longsleeve, fit: "contain" },
   { name: "Core Tee", note: "Mineral wash cotton", price: "$48", image: coreTee },
   { name: "Summit Beanie", note: "Ribbed merino", price: "$36", image: summitBeanie },
