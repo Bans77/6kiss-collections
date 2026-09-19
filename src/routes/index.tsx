@@ -29,7 +29,7 @@ export const Route = createFileRoute("/")({
 
 const products: { name: string; note: string; price: string; image: string; fit?: "contain" }[] = [
   { name: "6Kiss Long Sleeve Tee", note: "STONE WASH", price: "$39.99", image: longsleeve, fit: "contain" },
-  { name: "6Kiss Hoodie", note: "STONE WASH", price: "$48", image: coreTee, fit: "contain" },
+  { name: "6Kiss Hoodie", note: "STONE WASH", price: "$44.99", image: coreTee, fit: "contain" },
 ];
 
 function Star({ className = "size-5" }: { className?: string }) {
