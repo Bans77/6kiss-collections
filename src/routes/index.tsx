@@ -98,7 +98,7 @@ function Index() {
 
               <div className="mt-10 border-y border-line py-6">
                 <div className="flex flex-wrap items-center justify-between gap-5">
-                  <span className="font-display text-2xl">$34.99</span>
+                  <span className="font-display text-2xl">{hero.price}</span>
                   <div className="flex gap-2" aria-label="Select a size">
                     {["S", "M", "L", "XL", "2XL", "3XL"].map((size) => (
                       <Button
