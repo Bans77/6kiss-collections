@@ -84,7 +84,7 @@ function Index() {
   const [selectedSize, setSelectedSize] = useState("M");
   const [cartCount, setCartCount] = useState(0);
 
-  const hero = products[heroIndex];
+  const hero = products[heroIndex]!;
   const collection = products.filter((_, index) => index !== heroIndex);
 
   return (
