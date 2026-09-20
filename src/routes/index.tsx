@@ -3,7 +3,6 @@ import { ArrowRight, ShoppingBag } from "lucide-react";
 import { useState } from "react";
 
 import nocturnalTee from "@/assets/nocturnal-tee-cutout.png";
-import longsleeve from "@/assets/nocturnal-longsleeve-cutout.png";
 import coreTee from "@/assets/nocturnal-hoodie-cutout.png";
 import { Button } from "@/components/ui/button";
 
@@ -28,7 +27,6 @@ export const Route = createFileRoute("/")({
 });
 
 const products: { name: string; note: string; price: string; image: string; fit?: "contain" }[] = [
-  { name: "6Kiss Long Sleeve Tee", note: "STONE WASH", price: "$39.99", image: longsleeve, fit: "contain" },
   { name: "6Kiss Hoodie", note: "STONE WASH", price: "$44.99", image: coreTee, fit: "contain" },
 ];
 
@@ -139,7 +137,7 @@ function Index() {
               </p>
             </div>
 
-            <div className="grid border-l border-t border-line sm:grid-cols-2">
+            <div className="grid border-l border-t border-line">
               {products.map((product, index) => (
                 <a key={product.name} href="#top" className="group border-b border-r border-line bg-panel/40 p-3">
                   <div className="relative aspect-[4/5] overflow-hidden bg-ink">
