@@ -137,7 +137,7 @@ function Index() {
               </p>
             </div>
 
-            <div className="grid border-l border-t border-line sm:grid-cols-2">
+            <div className="grid border-l border-t border-line">
               {products.map((product, index) => (
                 <a key={product.name} href="#top" className="group border-b border-r border-line bg-panel/40 p-3">
                   <div className="relative aspect-[4/5] overflow-hidden bg-ink">
