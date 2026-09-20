@@ -3,6 +3,7 @@ import { ArrowRight, ShoppingBag } from "lucide-react";
 import { useState } from "react";
 
 import nocturnalTee from "@/assets/nocturnal-tee-cutout.png";
+import longsleeveTee from "@/assets/nocturnal-longsleeve-cutout.png";
 import coreTee from "@/assets/nocturnal-hoodie-cutout.png";
 import { Button } from "@/components/ui/button";
 
@@ -26,8 +27,48 @@ export const Route = createFileRoute("/")({
   component: Index,
 });
 
-const products: { name: string; note: string; price: string; image: string; fit?: "contain" }[] = [
-  { name: "6Kiss Hoodie", note: "STONE WASH", price: "$44.99", image: coreTee, fit: "contain" },
+type Product = {
+  id: string;
+  name: string;
+  label: string;
+  note: string;
+  price: string;
+  image: string;
+  fit?: "contain";
+  sizes: string[];
+};
+
+const products: Product[] = [
+  {
+    id: "short-sleeve",
+    name: "6Kiss Short Sleeve Tee",
+    label: "6KISS SHORT SLEEVE TEE",
+    note: "STONE WASH",
+    price: "$34.99",
+    image: nocturnalTee,
+    fit: "contain",
+    sizes: ["S", "M", "L", "XL", "2XL", "3XL"],
+  },
+  {
+    id: "long-sleeve",
+    name: "6Kiss Long Sleeve Tee",
+    label: "6KISS LONG SLEEVE TEE",
+    note: "STONE WASH",
+    price: "$39.99",
+    image: longsleeveTee,
+    fit: "contain",
+    sizes: ["S", "M", "L", "XL", "2XL"],
+  },
+  {
+    id: "hoodie",
+    name: "6Kiss Hoodie",
+    label: "6KISS HOODIE",
+    note: "STONE WASH",
+    price: "$44.99",
+    image: coreTee,
+    fit: "contain",
+    sizes: ["S", "M", "L", "XL", "2XL", "3XL"],
+  },
 ];
 
 function Star({ className = "size-5" }: { className?: string }) {
@@ -39,8 +80,12 @@ function Star({ className = "size-5" }: { className?: string }) {
 }
 
 function Index() {
+  const [heroIndex, setHeroIndex] = useState(0);
   const [selectedSize, setSelectedSize] = useState("M");
   const [cartCount, setCartCount] = useState(0);
+
+  const hero = products[heroIndex]!;
+  const collection = products.filter((_, index) => index !== heroIndex);
 
   return (
     <div className="relative min-h-screen overflow-hidden bg-ink font-body text-foreground">
@@ -66,18 +111,18 @@ function Index() {
           <div className="relative grid border border-line bg-panel md:grid-cols-2">
             <div className="group relative min-h-[520px] overflow-hidden border-b border-line md:min-h-[720px] md:border-b-0 md:border-r">
               <img
-                src={nocturnalTee}
-                alt="Nocturnal Nights acid-wash black graphic tee"
+                src={hero.image}
+                alt={hero.name}
                 width={1024}
                 height={1024}
-                className="absolute inset-0 size-full object-contain p-6 drop-shadow-[0_24px_60px_oklch(0.7_0.075_10/0.12)] transition-transform duration-[1800ms] group-hover:scale-[1.025] md:p-10"
+                className={"absolute inset-0 size-full drop-shadow-[0_24px_60px_oklch(0.7_0.075_10/0.12)] transition-transform duration-[1800ms] group-hover:scale-[1.025] " + (hero.fit === "contain" ? "object-contain p-6 md:p-10" : "object-cover")}
               />
               <div className="absolute inset-0 bg-gradient-to-t from-ink/70 via-transparent to-ink/20" />
               <div className="absolute left-6 top-6 flex items-center gap-3 text-[10px] font-bold uppercase tracking-[0.3em] text-muted-foreground md:left-8 md:top-8">
                 SERIES 01<span className="h-px w-12 bg-muted-foreground/50" />
               </div>
               <div className="absolute bottom-6 left-6 text-[10px] uppercase tracking-[0.25em] text-muted-foreground md:bottom-8 md:left-8">
-                6KISS SHORT SLEEVE TEE
+                {hero.label}
               </div>
             </div>
 
@@ -85,7 +130,7 @@ function Index() {
               <Star className="mb-10 size-10 text-foreground" />
               <p className="mb-5 text-[10px] font-bold uppercase tracking-[0.35em] text-glow">NOCTURNAL / DROP</p>
               <h1 className="max-w-lg font-display text-6xl font-medium leading-[0.82] md:text-7xl lg:text-8xl">
-                Nocturnal<br /> <span className="text-primary">Collection</span>
+                Nocturnal<br /> <span className="text-primary">Collection</span>
               </h1>
               <p className="mt-7 max-w-sm font-display text-xl italic leading-relaxed text-muted-foreground">
                 When the city sleeps, we come alive. A heavyweight silhouette made for the ones who know.
@@ -93,9 +138,9 @@ function Index() {
 
               <div className="mt-10 border-y border-line py-6">
                 <div className="flex flex-wrap items-center justify-between gap-5">
-                  <span className="font-display text-2xl">$34.99</span>
+                  <span className="font-display text-2xl">{hero.price}</span>
                   <div className="flex gap-2" aria-label="Select a size">
-                    {["S", "M", "L", "XL", "2XL", "3XL"].map((size) => (
+                    {hero.sizes.map((size) => (
                       <Button
                         key={size}
                         size="icon"
@@ -137,22 +182,34 @@ function Index() {
               </p>
             </div>
 
-            <div className="grid border-l border-t border-line">
-              {products.map((product, index) => (
-                <a key={product.name} href="#top" className="group border-b border-r border-line bg-panel/40 p-3">
-                  <div className="relative aspect-[4/5] overflow-hidden bg-ink">
-                    <img src={product.image} alt={product.name} width={1024} height={1024} loading="lazy" className={"size-full " + (product.fit === "contain" ? "scale-[1.02] object-contain p-4 grayscale transition duration-700 group-hover:scale-[1.05] group-hover:grayscale-0" : "object-cover grayscale transition duration-700 group-hover:scale-[1.03] group-hover:grayscale-0")} />
-                    <span className="absolute left-4 top-4 text-[9px] uppercase tracking-[0.2em] text-foreground/70">0{index + 2}</span>
-                  </div>
-                  <div className="flex items-start justify-between gap-4 px-1 py-5">
-                    <div>
-                      <h3 className="font-display text-xl">{product.name}</h3>
-                      <p className="mt-1 text-[10px] uppercase tracking-[0.12em] text-muted-foreground">{product.note}</p>
+            <div className="grid border-l border-t border-line lg:grid-cols-2">
+              {collection.map((product) => {
+                const originalIndex = products.indexOf(product);
+                return (
+                  <button
+                    key={product.id}
+                    type="button"
+                    onClick={() => {
+                      setHeroIndex(originalIndex);
+                      setSelectedSize("M");
+                    }}
+                    className="group cursor-pointer border-b border-r border-line bg-panel/40 p-3 text-left"
+                    aria-label={`View ${product.name}`}
+                  >
+                    <div className="relative aspect-[4/5] overflow-hidden bg-ink">
+                      <img src={product.image} alt={product.name} width={1024} height={1024} loading="lazy" className={"size-full " + (product.fit === "contain" ? "scale-[1.02] object-contain p-4 grayscale transition duration-700 group-hover:scale-[1.05] group-hover:grayscale-0" : "object-cover grayscale transition duration-700 group-hover:scale-[1.03] group-hover:grayscale-0")} />
+                      <span className="absolute left-4 top-4 text-[9px] uppercase tracking-[0.2em] text-foreground/70">0{originalIndex + 1}</span>
                     </div>
-                    <span className="font-display text-lg text-glow">{product.price}</span>
-                  </div>
-                </a>
-              ))}
+                    <div className="flex items-start justify-between gap-4 px-1 py-5">
+                      <div>
+                        <h3 className="font-display text-xl">{product.name}</h3>
+                        <p className="mt-1 text-[10px] uppercase tracking-[0.12em] text-muted-foreground">{product.note}</p>
+                      </div>
+                      <span className="font-display text-lg text-glow">{product.price}</span>
+                    </div>
+                  </button>
+                );
+              })}
             </div>
           </div>
         </section>
