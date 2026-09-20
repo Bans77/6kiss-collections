@@ -143,11 +143,17 @@ function Index() {
             </div>
 
             <div className="grid border-l border-t border-line">
-              {products.map((product, index) => (
-                <a key={product.name} href="#top" className="group border-b border-r border-line bg-panel/40 p-3">
+              {shelf.map(({ product, index }, position) => (
+                <a
+                  key={product.name}
+                  href="#top"
+                  onClick={() => setFeatured(index)}
+                  className="group cursor-pointer border-b border-r border-line bg-panel/40 p-3"
+                >
                   <div className="relative aspect-[4/5] overflow-hidden bg-ink">
                     <img src={product.image} alt={product.name} width={1024} height={1024} loading="lazy" className={"size-full " + (product.fit === "contain" ? "scale-[1.02] object-contain p-4 grayscale transition duration-700 group-hover:scale-[1.05] group-hover:grayscale-0" : "object-cover grayscale transition duration-700 group-hover:scale-[1.03] group-hover:grayscale-0")} />
                     <span className="absolute left-4 top-4 text-[9px] uppercase tracking-[0.2em] text-foreground/70">0{index + 2}</span>
+                    <span className="absolute bottom-4 right-4 text-[9px] font-bold uppercase tracking-[0.2em] text-glow opacity-0 transition duration-500 group-hover:opacity-100">View</span>
                   </div>
                   <div className="flex items-start justify-between gap-4 px-1 py-5">
                     <div>
