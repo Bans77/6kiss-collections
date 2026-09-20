@@ -26,8 +26,9 @@ export const Route = createFileRoute("/")({
   component: Index,
 });
 
-const products: { name: string; note: string; price: string; image: string; fit?: "contain" }[] = [
-  { name: "6Kiss Hoodie", note: "STONE WASH", price: "$44.99", image: coreTee, fit: "contain" },
+const products: { name: string; label: string; note: string; price: string; image: string; fit?: "contain" }[] = [
+  { name: "6Kiss Short Sleeve Tee", label: "6KISS SHORT SLEEVE TEE", note: "STONE WASH", price: "$34.99", image: nocturnalTee },
+  { name: "6Kiss Hoodie", label: "6KISS HOODIE", note: "STONE WASH", price: "$44.99", image: coreTee, fit: "contain" },
 ];
 
 function Star({ className = "size-5" }: { className?: string }) {
