@@ -56,7 +56,6 @@ function Index() {
           <div className="hidden items-center gap-9 text-[11px] font-bold uppercase tracking-[0.18em] text-muted-foreground md:flex">
             <a href="#collection" className="transition-colors hover:text-glow">Collection</a>
             <a href="#archive" className="transition-colors hover:text-glow">Archive</a>
-            <a href="#archive" className="transition-colors hover:text-glow">Archive</a>
           </div>
           <a href="#collection" aria-label={`Shopping bag with ${cartCount} items`} className="flex items-center gap-2 text-xs uppercase tracking-[0.15em]">
             <ShoppingBag className="size-4" /> <span>Bag ({cartCount})</span>
