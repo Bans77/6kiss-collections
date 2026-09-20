@@ -40,8 +40,11 @@ function Star({ className = "size-5" }: { className?: string }) {
 }
 
 function Index() {
+  const [featured, setFeatured] = useState(0);
   const [selectedSize, setSelectedSize] = useState("M");
   const [cartCount, setCartCount] = useState(0);
+  const hero = products[featured];
+  const shelf = products.map((product, index) => ({ product, index })).filter(({ index }) => index !== featured);
 
   return (
     <div className="relative min-h-screen overflow-hidden bg-ink font-body text-foreground">
