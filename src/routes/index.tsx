@@ -143,7 +143,7 @@ function Index() {
             </div>
 
             <div className="grid border-l border-t border-line">
-              {shelf.map(({ product, index }, position) => (
+              {shelf.map(({ product, index }) => (
                 <a
                   key={product.name}
                   href="#top"
