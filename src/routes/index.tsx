@@ -3,7 +3,6 @@ import { ArrowRight, ShoppingBag } from "lucide-react";
 import { useState } from "react";
 
 import nocturnalTee from "@/assets/nocturnal-tee-cutout.png";
-import longsleeve from "@/assets/nocturnal-longsleeve-cutout.png";
 import coreTee from "@/assets/nocturnal-hoodie-cutout.png";
 import { Button } from "@/components/ui/button";
 
