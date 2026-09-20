@@ -70,18 +70,19 @@ function Index() {
           <div className="relative grid border border-line bg-panel md:grid-cols-2">
             <div className="group relative min-h-[520px] overflow-hidden border-b border-line md:min-h-[720px] md:border-b-0 md:border-r">
               <img
-                src={nocturnalTee}
-                alt="Nocturnal Nights acid-wash black graphic tee"
+                key={hero.image}
+                src={hero.image}
+                alt={hero.name}
                 width={1024}
                 height={1024}
-                className="absolute inset-0 size-full object-contain p-6 drop-shadow-[0_24px_60px_oklch(0.7_0.075_10/0.12)] transition-transform duration-[1800ms] group-hover:scale-[1.025] md:p-10"
+                className={"absolute inset-0 size-full drop-shadow-[0_24px_60px_oklch(0.7_0.075_10/0.12)] transition-transform duration-[1800ms] group-hover:scale-[1.025] " + (hero.fit === "contain" ? "object-contain p-6 md:p-10" : "object-contain p-6 md:p-10")}
               />
               <div className="absolute inset-0 bg-gradient-to-t from-ink/70 via-transparent to-ink/20" />
               <div className="absolute left-6 top-6 flex items-center gap-3 text-[10px] font-bold uppercase tracking-[0.3em] text-muted-foreground md:left-8 md:top-8">
                 SERIES 01<span className="h-px w-12 bg-muted-foreground/50" />
               </div>
               <div className="absolute bottom-6 left-6 text-[10px] uppercase tracking-[0.25em] text-muted-foreground md:bottom-8 md:left-8">
-                6KISS SHORT SLEEVE TEE
+                {hero.label}
               </div>
             </div>
 
