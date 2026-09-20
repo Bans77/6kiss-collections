@@ -43,7 +43,7 @@ function Index() {
   const [featured, setFeatured] = useState(0);
   const [selectedSize, setSelectedSize] = useState("M");
   const [cartCount, setCartCount] = useState(0);
-  const hero = products[featured];
+  const hero = products[featured] ?? products[0];
   const shelf = products.map((product, index) => ({ product, index })).filter(({ index }) => index !== featured);
 
   return (
