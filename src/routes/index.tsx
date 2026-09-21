@@ -39,7 +39,7 @@ function Star({ className = "size-5" }: { className?: string }) {
 function Index() {
   const [featured, setFeatured] = useState(0);
   const [selectedSize, setSelectedSize] = useState("M");
-  const [cartCount, setCartCount] = useState(0);
+  const cart = useCart();
   const hero = products[featured] ?? products[0]!;
   const shelf = products.map((product, index) => ({ product, index })).filter(({ index }) => index !== featured);
 
@@ -55,9 +55,14 @@ function Index() {
           <div className="hidden items-center gap-9 text-[11px] font-bold uppercase tracking-[0.18em] text-muted-foreground md:flex">
             <a href="#collection" className="transition-colors hover:text-glow">Collection</a>
           </div>
-          <a href="#collection" aria-label={`Shopping bag with ${cartCount} items`} className="flex items-center gap-2 text-xs uppercase tracking-[0.15em]">
-            <ShoppingBag className="size-4" /> <span>Bag ({cartCount})</span>
-          </a>
+          <button
+            type="button"
+            onClick={cart.openCart}
+            aria-label={`Open shopping bag with ${cart.count} items`}
+            className="flex items-center gap-2 text-xs uppercase tracking-[0.15em] transition-colors hover:text-glow"
+          >
+            <ShoppingBag className="size-4" /> <span>Bag ({cart.count})</span>
+          </button>
         </nav>
       </header>
 
