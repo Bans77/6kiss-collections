@@ -169,7 +169,7 @@ function Index() {
                       <h3 className="font-display text-xl">{product.name}</h3>
                       <p className="mt-1 text-[10px] uppercase tracking-[0.12em] text-muted-foreground">{product.note}</p>
                     </div>
-                    <span className="font-display text-lg text-glow">{product.price}</span>
+                    <span className="font-display text-lg text-glow">{formatPrice(product.priceCents)}</span>
                   </div>
                 </a>
               ))}
