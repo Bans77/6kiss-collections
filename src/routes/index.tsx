@@ -1,10 +1,11 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { ArrowRight, ShoppingBag } from "lucide-react";
 import { useState } from "react";
+import { toast } from "sonner";
 
-import nocturnalTee from "@/assets/nocturnal-tee-cutout.png";
-import coreTee from "@/assets/nocturnal-hoodie-cutout.png";
 import { Button } from "@/components/ui/button";
+import { useCart } from "@/lib/cart";
+import { formatPrice, products, sizes } from "@/lib/products";
 
 export const Route = createFileRoute("/")({
   head: () => ({
