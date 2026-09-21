@@ -1,10 +1,11 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { ArrowRight, ShoppingBag } from "lucide-react";
 import { useState } from "react";
+import { toast } from "sonner";
 
-import nocturnalTee from "@/assets/nocturnal-tee-cutout.png";
-import coreTee from "@/assets/nocturnal-hoodie-cutout.png";
 import { Button } from "@/components/ui/button";
+import { useCart } from "@/lib/cart";
+import { formatPrice, products, sizes } from "@/lib/products";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -26,10 +27,6 @@ export const Route = createFileRoute("/")({
   component: Index,
 });
 
-const products: { name: string; label: string; note: string; price: string; image: string; fit?: "contain" }[] = [
-  { name: "6Kiss Short Sleeve Tee", label: "6KISS SHORT SLEEVE TEE", note: "STONE WASH", price: "$34.99", image: nocturnalTee, fit: "contain" },
-  { name: "6Kiss Hoodie", label: "6KISS HOODIE", note: "STONE WASH", price: "$44.99", image: coreTee, fit: "contain" },
-];
 
 function Star({ className = "size-5" }: { className?: string }) {
   return (
@@ -42,7 +39,7 @@ function Star({ className = "size-5" }: { className?: string }) {
 function Index() {
   const [featured, setFeatured] = useState(0);
   const [selectedSize, setSelectedSize] = useState("M");
-  const [cartCount, setCartCount] = useState(0);
+  const cart = useCart();
   const hero = products[featured] ?? products[0]!;
   const shelf = products.map((product, index) => ({ product, index })).filter(({ index }) => index !== featured);
 
@@ -58,9 +55,14 @@ function Index() {
           <div className="hidden items-center gap-9 text-[11px] font-bold uppercase tracking-[0.18em] text-muted-foreground md:flex">
             <a href="#collection" className="transition-colors hover:text-glow">Collection</a>
           </div>
-          <a href="#collection" aria-label={`Shopping bag with ${cartCount} items`} className="flex items-center gap-2 text-xs uppercase tracking-[0.15em]">
-            <ShoppingBag className="size-4" /> <span>Bag ({cartCount})</span>
-          </a>
+          <button
+            type="button"
+            onClick={cart.openCart}
+            aria-label={`Open shopping bag with ${cart.count} items`}
+            className="flex items-center gap-2 text-xs uppercase tracking-[0.15em] transition-colors hover:text-glow"
+          >
+            <ShoppingBag className="size-4" /> <span>Bag ({cart.count})</span>
+          </button>
         </nav>
       </header>
 
@@ -98,9 +100,9 @@ function Index() {
 
               <div className="mt-10 border-y border-line py-6">
                 <div className="flex flex-wrap items-center justify-between gap-5">
-                  <span className="font-display text-2xl">{hero.price}</span>
+                  <span className="font-display text-2xl">{formatPrice(hero.priceCents)}</span>
                   <div className="flex gap-2" aria-label="Select a size">
-                    {["S", "M", "L", "XL", "2XL", "3XL"].map((size) => (
+                    {sizes.map((size) => (
                       <Button
                         key={size}
                         size="icon"
@@ -115,7 +117,14 @@ function Index() {
                 </div>
               </div>
 
-              <Button className="mt-7 w-full" onClick={() => setCartCount((count) => count + 1)}>
+              <Button
+                className="mt-7 w-full"
+                onClick={() => {
+                  cart.addItem(hero.id, selectedSize);
+                  toast.success(`${hero.name} — size ${selectedSize} added to your bag`);
+                  cart.openCart();
+                }}
+              >
                 Add size {selectedSize} to bag <ArrowRight className="ml-3 size-4" />
               </Button>
               <div className="mt-6 flex flex-wrap gap-x-8 gap-y-2 text-[9px] font-bold uppercase tracking-[0.18em] text-muted-foreground">
@@ -160,7 +169,7 @@ function Index() {
                       <h3 className="font-display text-xl">{product.name}</h3>
                       <p className="mt-1 text-[10px] uppercase tracking-[0.12em] text-muted-foreground">{product.note}</p>
                     </div>
-                    <span className="font-display text-lg text-glow">{product.price}</span>
+                    <span className="font-display text-lg text-glow">{formatPrice(product.priceCents)}</span>
                   </div>
                 </a>
               ))}
