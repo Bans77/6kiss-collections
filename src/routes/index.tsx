@@ -100,9 +100,9 @@ function Index() {
 
               <div className="mt-10 border-y border-line py-6">
                 <div className="flex flex-wrap items-center justify-between gap-5">
-                  <span className="font-display text-2xl">{hero.price}</span>
+                  <span className="font-display text-2xl">{formatPrice(hero.priceCents)}</span>
                   <div className="flex gap-2" aria-label="Select a size">
-                    {["S", "M", "L", "XL", "2XL", "3XL"].map((size) => (
+                    {sizes.map((size) => (
                       <Button
                         key={size}
                         size="icon"
@@ -117,7 +117,14 @@ function Index() {
                 </div>
               </div>
 
-              <Button className="mt-7 w-full" onClick={() => setCartCount((count) => count + 1)}>
+              <Button
+                className="mt-7 w-full"
+                onClick={() => {
+                  cart.addItem(hero.id, selectedSize);
+                  toast.success(`${hero.name} — size ${selectedSize} added to your bag`);
+                  cart.openCart();
+                }}
+              >
                 Add size {selectedSize} to bag <ArrowRight className="ml-3 size-4" />
               </Button>
               <div className="mt-6 flex flex-wrap gap-x-8 gap-y-2 text-[9px] font-bold uppercase tracking-[0.18em] text-muted-foreground">
