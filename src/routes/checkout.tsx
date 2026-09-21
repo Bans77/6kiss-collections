@@ -78,7 +78,7 @@ function Field({
   name: FieldName;
   label: string;
   value: string;
-  error?: string;
+  error?: string | undefined;
   onChange: (name: FieldName, value: string) => void;
   type?: string;
   placeholder?: string;
@@ -119,7 +119,7 @@ function Checkout() {
   const cart = useCart();
   const navigate = useNavigate();
   const [form, setForm] = useState<CustomerForm>(emptyForm);
-  const [errors, setErrors] = useState<Partial<Record<FieldName, string>>>({});
+  const [errors, setErrors] = useState<Partial<Record<FieldName, string | undefined>>>({});
   const [placedOrder, setPlacedOrder] = useState<{ id: string; email: string; total: number } | null>(
     null,
   );
@@ -133,7 +133,7 @@ function Checkout() {
     event.preventDefault();
     const result = customerSchema.safeParse(form);
     if (!result.success) {
-      const nextErrors: Partial<Record<FieldName, string>> = {};
+      const nextErrors: Partial<Record<FieldName, string | undefined>> = {};
       for (const issue of result.error.issues) {
         const key = issue.path[0] as FieldName | undefined;
         if (key && !nextErrors[key]) nextErrors[key] = issue.message;
