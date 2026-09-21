@@ -26,9 +26,9 @@ export const Route = createFileRoute("/")({
   component: Index,
 });
 
-const products: { name: string; label: string; note: string; price: string; image: string; fit?: "contain"; heroPad: string }[] = [
-  { name: "6Kiss Short Sleeve Tee", label: "6KISS SHORT SLEEVE TEE", note: "STONE WASH", price: "$34.99", image: nocturnalTee, heroPad: "p-20 md:p-36" },
-  { name: "6Kiss Hoodie", label: "6KISS HOODIE", note: "STONE WASH", price: "$44.99", image: coreTee, fit: "contain", heroPad: "p-24 md:p-44" },
+const products: { name: string; label: string; note: string; price: string; image: string; fit?: "contain" }[] = [
+  { name: "6Kiss Short Sleeve Tee", label: "6KISS SHORT SLEEVE TEE", note: "STONE WASH", price: "$34.99", image: nocturnalTee },
+  { name: "6Kiss Hoodie", label: "6KISS HOODIE", note: "STONE WASH", price: "$44.99", image: coreTee, fit: "contain" },
 ];
 
 function Star({ className = "size-5" }: { className?: string }) {
@@ -75,7 +75,7 @@ function Index() {
                 alt={hero.name}
                 width={1024}
                 height={1024}
-                className={"absolute inset-0 size-full object-contain drop-shadow-[0_24px_60px_oklch(0.7_0.075_10/0.12)] transition-transform duration-[1800ms] group-hover:scale-[1.025] " + hero.heroPad}
+                className="absolute inset-0 size-full object-contain p-6 md:p-10 drop-shadow-[0_24px_60px_oklch(0.7_0.075_10/0.12)] transition-transform duration-[1800ms] group-hover:scale-[1.025]"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-ink/70 via-transparent to-ink/20" />
               <div className="absolute left-6 top-6 flex items-center gap-3 text-[10px] font-bold uppercase tracking-[0.3em] text-muted-foreground md:left-8 md:top-8">
