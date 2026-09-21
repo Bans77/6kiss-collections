@@ -75,7 +75,7 @@ function Index() {
                 alt={hero.name}
                 width={1024}
                 height={1024}
-                className={"absolute inset-0 size-full drop-shadow-[0_24px_60px_oklch(0.7_0.075_10/0.12)] transition-transform duration-[1800ms] group-hover:scale-[1.025] " + (hero.fit === "contain" ? "object-contain p-10 md:p-16" : "object-contain p-10 md:p-16")}
+                className={"absolute inset-0 size-full object-contain p-10 md:p-16 drop-shadow-[0_24px_60px_oklch(0.7_0.075_10/0.12)] transition-transform duration-[1800ms] group-hover:scale-[1.025]"}
               />
               <div className="absolute inset-0 bg-gradient-to-t from-ink/70 via-transparent to-ink/20" />
               <div className="absolute left-6 top-6 flex items-center gap-3 text-[10px] font-bold uppercase tracking-[0.3em] text-muted-foreground md:left-8 md:top-8">
