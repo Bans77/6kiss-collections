@@ -1,5 +1,7 @@
 import nocturnalTee from "@/assets/nocturnal-tee-cutout.png";
 import nocturnalHoodie from "@/assets/nocturnal-hoodie-cutout.png";
+import nocturnalTeeFront from "@/assets/nocturnal-tee-front-cutout.png";
+import nocturnalHoodieFront from "@/assets/nocturnal-hoodie-front-cutout.png";
 
 export type Product = {
   id: string;
@@ -8,6 +10,7 @@ export type Product = {
   note: string;
   priceCents: number;
   image: string;
+  backImage: string;
   fit?: "contain";
 };
 
@@ -18,7 +21,8 @@ export const products: Product[] = [
     label: "6KISS SHORT SLEEVE TEE",
     note: "STONE WASH",
     priceCents: 3499,
-    image: nocturnalTee,
+    image: nocturnalTeeFront,
+    backImage: nocturnalTee,
     fit: "contain",
   },
   {
@@ -27,7 +31,8 @@ export const products: Product[] = [
     label: "6KISS HOODIE",
     note: "STONE WASH",
     priceCents: 4499,
-    image: nocturnalHoodie,
+    image: nocturnalHoodieFront,
+    backImage: nocturnalHoodie,
     fit: "contain",
   },
 ];
