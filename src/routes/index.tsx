@@ -147,21 +147,21 @@ function Index() {
                 <h2 className="mt-3 font-display text-5xl leading-none md:text-6xl">6Kiss - Nocturnal Collection</h2>
               </div>
               <p className="max-w-sm text-sm leading-relaxed text-muted-foreground md:justify-self-end">
-                Built in small runs. Stone Washed, worn, and finished by hand so no two pieces settle exactly the same.
+                Made in small runs. Stone Washed, worn, and finished by hand so no two pieces settle exactly the same.
               </p>
             </div>
 
             <div className="grid border-l border-t border-line">
-              {shelf.map(({ product, index }) => (
+              {shelf.map(({ product }, cardNumber) => (
                 <a
                   key={product.name}
                   href="#top"
-                  onClick={() => setFeatured(index)}
+                  onClick={() => setFeatured(products.indexOf(product))}
                   className="group cursor-pointer border-b border-r border-line bg-panel/40 p-3"
                 >
                   <div className="relative aspect-[4/5] overflow-hidden bg-ink">
                     <img src={product.image} alt={product.name} width={1024} height={1024} loading="lazy" className={"size-full " + (product.fit === "contain" ? "scale-[1.02] object-contain p-4 grayscale transition duration-700 group-hover:scale-[1.05] group-hover:grayscale-0" : "object-cover grayscale transition duration-700 group-hover:scale-[1.03] group-hover:grayscale-0")} />
-                    <span className="absolute left-4 top-4 text-[9px] uppercase tracking-[0.2em] text-foreground/70">0{index + 2}</span>
+                    <span className="absolute left-4 top-4 text-[9px] uppercase tracking-[0.2em] text-foreground/70">0{cardNumber + 2}</span>
                     <span className="absolute bottom-4 right-4 text-[9px] font-bold uppercase tracking-[0.2em] text-glow opacity-0 transition duration-500 group-hover:opacity-100">View</span>
                   </div>
                   <div className="flex items-start justify-between gap-4 px-1 py-5">
@@ -186,8 +186,14 @@ function Index() {
             <p className="mt-2 text-xs uppercase tracking-[0.16em] text-muted-foreground">When the city sleeps.</p>
           </div>
           <div className="flex gap-7 text-[10px] uppercase tracking-[0.18em] text-muted-foreground">
-            <a href="#top" className="hover:text-glow">Instagram</a>
-            <a href="#archive" className="hover:text-glow">Support</a>
+            <a
+              href="https://mail.google.com/mail/?view=cm&fs=1&to=6kisscollective@gmail.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-glow"
+            >
+              Support
+            </a>
 
             <span>© 2026</span>
           </div>
