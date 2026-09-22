@@ -343,7 +343,7 @@ function Checkout() {
                       <div className="size-20 shrink-0 border border-line bg-ink">
                         <img
                           src={product.image}
-                          alt={product.name}
+                          alt={`${product.name} front view`}
                           className="size-full object-contain p-1.5"
                         />
                       </div>
