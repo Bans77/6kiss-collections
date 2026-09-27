@@ -130,6 +130,44 @@
   }
 }
 
+/* Neon finish — clickable elements hue brighter on hover */
+@layer base {
+  a,
+  button,
+  [role="button"],
+  [data-slot="button"] {
+    transition:
+      filter 200ms ease,
+      box-shadow 200ms ease,
+      border-color 200ms ease,
+      color 200ms ease,
+      background-color 200ms ease;
+  }
+
+  a:hover,
+  button:hover,
+  [role="button"]:hover,
+  [data-slot="button"]:hover {
+    filter: brightness(1.22) saturate(1.15);
+  }
+
+  a:focus-visible,
+  button:focus-visible,
+  [role="button"]:focus-visible {
+    box-shadow: var(--neon-glow);
+  }
+}
+
+@utility neon-outline {
+  border-color: var(--color-border);
+  box-shadow: var(--neon-glow);
+}
+
+@utility neon-outline-strong {
+  border-color: var(--color-ring);
+  box-shadow: var(--neon-glow-strong);
+}
+
 @utility grain {
   opacity: 0.07;
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.7'/%3E%3C/svg%3E");
