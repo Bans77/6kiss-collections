@@ -185,9 +185,10 @@
 
 @utility glass-card {
   border-radius: calc(var(--radius) + 12px);
-  border: 1px solid oklch(1 0 0 / 10%);
+  border: 1px solid var(--color-border);
   background: oklch(1 0 0 / 5%);
   backdrop-filter: blur(24px);
+  box-shadow: var(--neon-glow);
 }
 
 @utility marquee-band {
