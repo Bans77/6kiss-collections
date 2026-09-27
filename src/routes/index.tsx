@@ -1,8 +1,10 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { ArrowRight, ShoppingBag } from "lucide-react";
+import { ArrowRight, Instagram, Music2, ShoppingBag } from "lucide-react";
 import { useState } from "react";
 import { toast } from "sonner";
 
+import albumCoverAsset from "@/assets/nocturnal-nights-cover.png.asset.json";
+import headerPhotoAsset from "@/assets/nocturnal-header.png.asset.json";
 import { Button } from "@/components/ui/button";
 import { useCart } from "@/lib/cart";
 import { formatPrice, products, sizes } from "@/lib/products";
@@ -70,8 +72,56 @@ function Index() {
         </nav>
       </header>
 
-      <main id="top">
-        <section className="relative mx-auto max-w-7xl px-5 py-10 md:px-8 md:py-16">
+      <main>
+        <section id="top" className="relative h-[calc(100svh-7rem)] min-h-[620px] max-h-[860px] overflow-hidden border-b border-line">
+          <img
+            src={headerPhotoAsset.url}
+            alt="Nocturnal artist seated beneath trees at night"
+            width={768}
+            height={1024}
+            className="absolute inset-0 size-full object-cover object-center"
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-ink/95 via-ink/65 to-ink/25" />
+          <div className="absolute inset-0 bg-gradient-to-t from-ink/85 via-transparent to-ink/35" />
+
+          <div className="relative mx-auto flex h-full max-w-7xl items-center px-5 pb-16 pt-10 md:px-8 md:pb-20">
+            <div className="flex max-w-4xl flex-col items-start gap-7 md:flex-row md:items-center md:gap-10">
+              <div className="shrink-0 border border-foreground/25 bg-ink/50 p-2 shadow-2xl backdrop-blur-sm">
+                <img
+                  src={albumCoverAsset.url}
+                  alt="Nocturnal Nights album cover"
+                  width={768}
+                  height={768}
+                  className="size-48 object-cover sm:size-56 md:size-72"
+                />
+              </div>
+              <div className="max-w-lg">
+                <p className="text-[10px] font-bold uppercase tracking-[0.3em] text-primary">New album</p>
+                <h1 className="mt-3 font-display text-5xl leading-[0.9] sm:text-6xl md:text-7xl">Nocturnal Nights</h1>
+                <p className="mt-4 text-sm font-bold uppercase tracking-[0.2em] text-foreground/80">
+                  Out now on all major platforms
+                </p>
+                <Button asChild className="mt-7">
+                  <a
+                    href="https://open.spotify.com/album/0w5s31aVtbFyhnUwAWpown?si=S1e5R4rVSamQko_iLCI1Mg"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <Music2 className="mr-3 size-4" /> Listen on Spotify
+                  </a>
+                </Button>
+              </div>
+            </div>
+          </div>
+
+          <Button asChild variant="outline" className="absolute bottom-5 right-5 bg-ink/65 backdrop-blur-sm md:bottom-8 md:right-8">
+            <a href="https://www.instagram.com/gurboee/" target="_blank" rel="noopener noreferrer">
+              <Instagram className="mr-3 size-4" /> Instagram
+            </a>
+          </Button>
+        </section>
+
+        <section id="merch" className="relative mx-auto max-w-7xl px-5 py-10 md:px-8 md:py-16">
           <div className="pointer-events-none absolute left-1/2 top-8 hidden h-[calc(100%-4rem)] w-[calc(100%-2rem)] -translate-x-1/2 border border-line/50 md:block" />
           <div className="relative grid border border-line bg-panel md:grid-cols-2">
             <div className="group relative min-h-[520px] overflow-hidden border-b border-line md:min-h-[720px] md:border-b-0 md:border-r">
