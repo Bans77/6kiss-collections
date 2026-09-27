@@ -8,3 +8,5 @@
 > Commits you push to the connected branch sync back to Lovable and show up in
 > the editor, so keep the branch in a working state.
 <!-- LOVABLE:END -->
+
+- Store uploaded campaign photography as Lovable Asset pointer JSON files so large media stays off-repository and keeps stable CDN URLs.
