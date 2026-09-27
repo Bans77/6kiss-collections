@@ -123,7 +123,7 @@ function Index() {
 
         <section id="merch" className="relative mx-auto max-w-7xl px-5 py-10 md:px-8 md:py-16">
           <div className="pointer-events-none absolute left-1/2 top-8 hidden h-[calc(100%-4rem)] w-[calc(100%-2rem)] -translate-x-1/2 border border-line/50 md:block" />
-          <div className="relative grid border border-line bg-panel md:grid-cols-2">
+          <div className="neon-outline relative grid border border-line bg-panel md:grid-cols-2">
             <div className="group relative min-h-[520px] overflow-hidden border-b border-line md:min-h-[720px] md:border-b-0 md:border-r">
               <img
                 key={heroImage}

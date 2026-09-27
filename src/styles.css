@@ -99,6 +99,7 @@
   --destructive-foreground: oklch(0.98 0 0);
 
   /* Neon mute purple outlines */
+  --line: oklch(0.52 0.09 310 / 55%);
   --border: oklch(0.52 0.09 310 / 55%);
   --input: oklch(0.52 0.09 310 / 55%);
   --ring: oklch(0.68 0.15 310);
